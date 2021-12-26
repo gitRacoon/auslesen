@@ -134,6 +134,7 @@ export class Auslesen {
     // Fill the roles of custom elements.
     this.ausWrapper.dataset.role = "wrapper";
     this.ausSelect.dataset.role = "select";
+    this.ausContent.dataset.role = "content";
     this.ausOptions.dataset.role = "options";
 
     // Fill settings of custom elements.
