@@ -10,7 +10,6 @@ export interface Params {
   placeholder?: string;
   replacePropElement?: boolean;
   useSearch?: boolean;
-  options?: Option[];
 }
 
 type EventHandler<T> = (target: T) => void;
@@ -177,9 +176,6 @@ export class Auslesen {
     // Call the function for render the Options list.
     if (this.element instanceof HTMLSelectElement) {
       this.useOptions(Array.from(this.element.options));
-    }
-    if (this.params.options) {
-      this.useOptions(this.params.options);
     }
 
     // Insert related elements.
