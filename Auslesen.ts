@@ -15,10 +15,11 @@ export interface Params {
 type EventHandler<T> = (target: T) => void;
 
 export class Auslesen {
+  readonly ausWrapper: HTMLDivElement;
+  readonly ausSelect: HTMLDivElement;
+  readonly ausOptions: HTMLUListElement;
+
   protected ausContent: HTMLSpanElement;
-  protected ausWrapper: HTMLDivElement;
-  protected ausSelect: HTMLDivElement;
-  protected ausOptions: HTMLUListElement;
   protected ausSearch: HTMLInputElement;
 
   private tabIndex: number;
