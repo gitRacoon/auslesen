@@ -138,8 +138,8 @@ export class Auslesen {
 
     // Fill settings of custom elements.
     this.ausSelect.className = this.element.className;
-    this.ausContent.dataset.value = this.element.ariaValueText ?? "";
-    this.ausContent.textContent = this.params.placeholder ?? this.element.ariaPlaceholder ?? "";
+    this.ausContent.dataset.value = "";
+    this.ausContent.textContent = this.params.placeholder ?? "";
 
     // Settings for using the input field.
     if (this.params.useSearch) {
