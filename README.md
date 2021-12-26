@@ -3,6 +3,7 @@
 ```javascript
 const auslesen = new Auslesen(element [, params]);
 ```
+> Поиграть с кодом можно здесь: [stackblitz](https://stackblitz.com/edit/typescript-zr3x3c?devtoolsheight=33&file=index.ts).
 
 ## Передаваемые параметры:
 
