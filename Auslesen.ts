@@ -187,7 +187,9 @@ export class Auslesen {
     }
 
     // Insert related elements.
-    this.ausFullWrap.append(this.ausSelect, this.ausOptions);
+    this.ausFullWrap.append(this.ausSelectWrap, this.ausOptionsWrap);
+    this.ausSelectWrap.append(this.ausSelect);
+    this.ausOptionsWrap.append(this.ausOptions);
     this.ausSelect.append(this.ausContent);
     this.ausOptions.append(...this.optionsList);
 
