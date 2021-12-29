@@ -18,7 +18,6 @@ export class Auslesen {
   readonly ausSelectWrap: HTMLDivElement;
   readonly ausOptionsWrap: HTMLDivElement;
   readonly ausFullWrap: HTMLDivElement;
-  readonly ausSelect: HTMLDivElement;
   readonly ausOptions: HTMLUListElement;
 
   protected ausContent: HTMLSpanElement;
@@ -41,7 +40,6 @@ export class Auslesen {
     // Create and render the custom Select according to type of the using element.
     this.ausFullWrap = document.createElement("div");
     this.ausSelectWrap = document.createElement("div");
-    this.ausSelect = document.createElement("div");
     this.ausOptionsWrap = document.createElement("div");
     this.ausOptions = document.createElement("ul");
     this.ausContent = document.createElement("span");
@@ -139,13 +137,12 @@ export class Auslesen {
     // Fill the roles of custom elements.
     this.ausFullWrap.dataset.role = "full-wrap";
     this.ausSelectWrap.dataset.role = "select-wrap";
-    this.ausSelect.dataset.role = "select";
     this.ausOptionsWrap.dataset.role = "options-wrap";
     this.ausOptions.dataset.role = "options";
     this.ausContent.dataset.role = "content";
     
     // Fill settings of custom elements.
-    this.ausSelect.className = this.element.className;
+    this.ausSelectWrap.className = this.element.className;
     this.ausContent.dataset.value = "";
     this.ausContent.textContent = this.params.placeholder ?? "";
 
@@ -158,7 +155,7 @@ export class Auslesen {
 
       // Preparing the environment for using the Search element.
       this.ausContent.hidden = true;
-      this.ausSelect.append(this.ausSearch);
+      this.ausSelectWrap.append(this.ausSearch);
       this.connectInput();
 
       // Init of the input selection event.
@@ -188,9 +185,8 @@ export class Auslesen {
 
     // Insert related elements.
     this.ausFullWrap.append(this.ausSelectWrap, this.ausOptionsWrap);
-    this.ausSelectWrap.append(this.ausSelect);
     this.ausOptionsWrap.append(this.ausOptions);
-    this.ausSelect.append(this.ausContent);
+    this.ausSelectWrap.append(this.ausContent);
     this.ausOptions.append(...this.optionsList);
 
     // Insert ready-made custom Select.
