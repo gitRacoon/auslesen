@@ -90,7 +90,7 @@ ariaSelected?: boolean;
 ```html
 <div data-role="full-wrap">
   <div data-role="select-wrap">
-    <input data-role="search" /> <!-- For useSearch param -->
+    <input type="search" data-role="search" name="aus-search" /> <!-- For useSearch param -->
     <span data-role="content"  value="value">textContent</span>
   </div>
   <div data-role="options-wrap">
