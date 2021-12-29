@@ -15,7 +15,9 @@ export interface Params {
 type EventHandler<T> = (target: T) => void;
 
 export class Auslesen {
-  readonly ausWrapper: HTMLDivElement;
+  readonly ausSelectWrap: HTMLDivElement;
+  readonly ausOptionsWrap: HTMLDivElement;
+  readonly ausFullWrap: HTMLDivElement;
   readonly ausSelect: HTMLDivElement;
   readonly ausOptions: HTMLUListElement;
 
@@ -37,8 +39,10 @@ export class Auslesen {
     this.selectedOption = null;
 
     // Create and render the custom Select according to type of the using element.
-    this.ausWrapper = document.createElement("div");
+    this.ausFullWrap = document.createElement("div");
+    this.ausSelectWrap = document.createElement("div");
     this.ausSelect = document.createElement("div");
+    this.ausOptionsWrap = document.createElement("div");
     this.ausOptions = document.createElement("ul");
     this.ausContent = document.createElement("span");
     this.ausSearch = document.createElement("input");
@@ -111,7 +115,7 @@ export class Auslesen {
    * Listener for changing the selected option.
    */
   onSelect(handler: EventHandler<HTMLLIElement>): ReturnType<typeof handler> {
-    this.ausWrapper.addEventListener("click", (event) => {
+    this.ausFullWrap.addEventListener("click", (event) => {
       const target = event.target as HTMLLIElement;
       if (target.dataset.role === "option") {
         return handler(target);
@@ -133,11 +137,13 @@ export class Auslesen {
 
   private render(): void {
     // Fill the roles of custom elements.
-    this.ausWrapper.dataset.role = "wrapper";
+    this.ausFullWrap.dataset.role = "full-wrap";
+    this.ausSelectWrap.dataset.role = "select-wrap";
     this.ausSelect.dataset.role = "select";
-    this.ausContent.dataset.role = "content";
+    this.ausOptionsWrap.dataset.role = "options-wrap";
     this.ausOptions.dataset.role = "options";
-
+    this.ausContent.dataset.role = "content";
+    
     // Fill settings of custom elements.
     this.ausSelect.className = this.element.className;
     this.ausContent.dataset.value = "";
@@ -181,15 +187,15 @@ export class Auslesen {
     }
 
     // Insert related elements.
-    this.ausWrapper.append(this.ausSelect, this.ausOptions);
+    this.ausFullWrap.append(this.ausSelect, this.ausOptions);
     this.ausSelect.append(this.ausContent);
     this.ausOptions.append(...this.optionsList);
 
     // Insert ready-made custom Select.
     if (this.params.replacePropElement) {
-      this.element.replaceWith(this.ausWrapper);
+      this.element.replaceWith(this.ausFullWrap);
     } else {
-      this.element.insertAdjacentElement("afterend", this.ausWrapper);
+      this.element.insertAdjacentElement("afterend", this.ausFullWrap);
     }
   }
 
