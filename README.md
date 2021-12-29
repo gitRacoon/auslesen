@@ -85,3 +85,19 @@ ariaSelected?: boolean;
 > (target: **HTMLInputElement**) => **void**
 
 Событие "Input" на поле ввода (только при `useSearch: true`). CallBack получает в аргументе `input` элемент.
+
+## Структура HTML
+```html
+<div data-role="full-wrap">
+  <div data-role="select-wrap">
+    <input data-role="search" /> <!-- For useSearch param -->
+    <span data-role="content"  value="value">textContent</span>
+  </div>
+  <div data-role="options-wrap">
+    <ul data-role="options">
+      <li data-role="option" value="value">textContent</li>
+      <!-- More options -->
+    </ul>
+  </div>
+</div>
+```
