@@ -79,6 +79,7 @@ ariaSelected?: boolean;
 Устанавливает переданный элемент как `selected`.
 
 ## Слушатели событий
+
 ### onSelect
 > (target: **HTMLLIElement**) => **void**
 
